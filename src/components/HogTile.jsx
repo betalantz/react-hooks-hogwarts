@@ -14,7 +14,8 @@ export default function HogTile({ hog }) {
         <div className="content">
             <h3 className="header">{name}</h3>
         </div>
-        {isShowDetail && <HogDetail hog={hog} />}
+        {isShowDetail && <HogDetail {...hog} />}
+        {/* above is conditional rendering for one component relying on the boolean in state */}
         <button
             className="ui button"
             onClick={() => setIsShowDetail(!isShowDetail)}

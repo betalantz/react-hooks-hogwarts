@@ -2,10 +2,10 @@
 1. [x] See all hog cards w/name and image on load
     - "ui grid container" on parent of cards
     - "ui eight wide column" on children
-2. [] Click a hog and see more details
+2. [x] Click a hog and see more details
     - HogDetail will be conditionally rendered as a child of HogTile
-3. [] Click a checkbox that will enable a 'greased' filter
-4. [] Select a dropdown that will sort hogs by name or weight
+3. [x] Click a checkbox that will enable a 'greased' filter
+4. [x] Select a dropdown that will sort hogs by name or weight
 
 ## Component Tree
 - App [hogs, filter, sort]
