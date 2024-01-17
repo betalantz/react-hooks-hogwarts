@@ -6,32 +6,33 @@ import HogList from "./HogList";
 import hogs from "../porkers_data";
 
 function App() {
-	const [hogList, setHogList] = useState(hogs)
-	const [isShowGreased, setIsShowGreased] = useState(false)
-	const [sortBy, setSortBy] = useState("")
+  const [hogList, setHogList] = useState(hogs);
+  const [isShowGreased, setIsShowGreased] = useState(false);
+  const [sortBy, setSortBy] = useState("");
 
-	const hogsToDisplay = hogList
-		.filter(hog => isShowGreased ? hog.greased : true)
-		.sort((hog1, hog2) => {
-			if (sortBy === "name"){
-				return hog1.name.localeCompare(hog2.name);
-			} else {
-				return hog1.weight - hog2.weight;
-			}
-		})
+  const hogsToDisplay = hogList
+    .filter((hog) => (isShowGreased ? hog.greased : true))
+    .sort((hog1, hog2) => {
+      // is this destructive or non-destructive?
+      if (sortBy === "name") {
+        return hog1.name.localeCompare(hog2.name);
+      } else {
+        return hog1.weight - hog2.weight;
+      }
+    });
 
-	return (
-		<div className="App">
-			<Header />
-			<Filter 
-				isShowGreased={isShowGreased}
-				onCheckGreased={setIsShowGreased}
-				sortBy={sortBy}
-				onChangeSortBy={setSortBy}
-			/>
-			<HogList hogList={hogsToDisplay} />
-		</div>
-	);
+  return (
+    <div className="App">
+      <Header />
+      <Filter
+        isShowGreased={isShowGreased}
+        onCheckGreased={setIsShowGreased}
+        sortBy={sortBy}
+        onChangeSortBy={setSortBy}
+      />
+      <HogList hogList={hogsToDisplay} />
+    </div>
+  );
 }
 
 export default App;
